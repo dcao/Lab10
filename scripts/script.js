@@ -8,7 +8,7 @@ const settings = document.querySelector('header > img');
 var sdk = splitio({
     core: {
         authorizationKey: 'b4u06qfp6bhvsbk775i783mb546q0cf954d5',
-        key: '87d669d0-c3f2-11eb-9072-0e264c9979ad'
+        key: Math.random().toString(36).substring(7)
     }
 });
 
@@ -20,6 +20,13 @@ function onReady() {
 
     if (treatment == 'off') {
         document.querySelector("main").className = "";
+    }
+
+    treatment = client.getTreatment('title');
+    console.log(treatment);
+
+    if (treatment == 'off') {
+        headerText.textContent = "Entries";
     }
 }
 
