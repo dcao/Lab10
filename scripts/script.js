@@ -5,6 +5,27 @@ import { router } from './router.js';
 const headerText = document.querySelector('header > h1');
 const settings = document.querySelector('header > img');
 
+var sdk = splitio({
+    core: {
+        authorizationKey: 'b4u06qfp6bhvsbk775i783mb546q0cf954d5',
+        key: '87d669d0-c3f2-11eb-9072-0e264c9979ad'
+    }
+});
+
+var client = sdk.client();
+
+function onReady() {
+    var treatment = client.getTreatment('double_column');
+    console.log(treatment);
+
+    if (treatment == 'off') {
+        document.querySelector("main").className = "";
+    }
+}
+
+// Evaluate treatment when the SDK is ready to operate.
+client.on(client.Event.SDK_READY, onReady);
+
 // When the back button is hit, set the state with the new page
 window.addEventListener('popstate', e => {
   if (e.state?.page && e.state.page.startsWith('entry')) {
