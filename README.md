@@ -13,3 +13,9 @@ index: https://dcao.github.io/Lab10
 second split: https://dcao.github.io/Lab10/secondSplit.html
 
 The second split changes the background color to a light blue.
+
+## Part 3
+
+Screenshot:
+
+![screenshot](ss.png)
